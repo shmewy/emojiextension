@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "Emoji Picker Extension",
+  "version": "1.0",
+  "description": "Triggers an emoji picker when you type a colon on any webpage.",
+  "permissions": ["activeTab"],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["emoji-picker.html", "styles.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "emoji-picker.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  }
+}
